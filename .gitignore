@@ -1,0 +1,51 @@
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore dataset and output files
+*.csv
+*.json
+*.xml
+*.tfrecord
+*.h5
+*.hdf5
+*.keras
+*.pb
+*.onnx
+*.pkl
+*.joblib
+
+# Ignore large datasets and models
+dataset/
+models/
+checkpoints/
+logs/
+
+# Ignore cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment files
+.env
+.venv/
+*.log
+*.out
+*.pid
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore Google Colab files
+.colab/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore Jupyter Notebook metadata files
+*.nbconvert/
+
+# macOS system files
+.DS_Store
+
