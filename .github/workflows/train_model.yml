@@ -3,7 +3,7 @@ name: Train and Upload Model
 on:
   push:
     branches:
-      - kim-test-cicd  # Run the workflow when pushing to the main branch
+      - kim-test-cicd  # Run the workflow when pushing to this branch
   workflow_dispatch:  # Allow manual triggering
 
 jobs:
@@ -28,9 +28,19 @@ jobs:
         run: |
           jupyter nbconvert --to notebook --execute Initial_Model_cicd.ipynb --output trained_model.ipynb
 
-      # - name: Save trained model as artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: trained-model
-      #     path: models/model.h5
+      - name: Save trained model as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trained-model
+          path: model.h5
+          retention-days: 7
 
+  notify_maintainers:
+    needs: train-and-upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification email
+        env:
+          EMAIL_TO: "kvierczhalek@sandiego.edu"
+        run: |
+          echo "New model artifact is available: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" | mail -s "New Model Available" $EMAIL_TO
