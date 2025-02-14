@@ -28,9 +28,9 @@ jobs:
         run: |
           jupyter nbconvert --to notebook --execute Initial_Model_cicd.ipynb --output trained_model.ipynb
 
-      - name: Save trained model as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: trained-model
-          path: models/model.h5
+      # - name: Save trained model as artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: trained-model
+      #     path: models/model.h5
 
