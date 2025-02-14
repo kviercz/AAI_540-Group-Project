@@ -39,8 +39,14 @@ jobs:
     needs: train-and-upload
     runs-on: ubuntu-latest
     steps:
-      - name: Send notification email
-        env:
-          EMAIL_TO: "kvierczhalek@sandiego.edu"
-        run: |
-          echo "New model artifact is available: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" | mail -s "New Model Available" $EMAIL_TO
+      - name: Post a GitHub issue comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 1,  // Change to a relevant issue ID
+              body: "A new model artifact is available: [Download here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+            });
