@@ -3,7 +3,7 @@ name: Train and Upload Model
 on:
   push:
     branches:
-      - kim-test-cicd  # Run the workflow when pushing to this branch
+      - kim-test-cicd  # Run the workflow with commits to main
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
@@ -32,7 +32,19 @@ jobs:
         run: |
           jupyter nbconvert --to notebook --execute Initial_Model_cicd.ipynb --output trained_model.ipynb
 
+      - name: Read validation accuracy
+        id: validation_check
+        run: |
+          VAL_ACC=$(cat val_acc.txt)
+          echo "Validation Accuracy: $VAL_ACC"
+          if (( $(echo "$VAL_ACC >= 0.5" | bc -l) )); then
+            echo "PASS_VALIDATION=true" >> $GITHUB_ENV
+          else
+            echo "PASS_VALIDATION=false" >> $GITHUB_ENV
+          fi
+
       - name: Save trained model as artifact
+        if: env.PASS_VALIDATION == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: trained-model
@@ -47,6 +59,7 @@ jobs:
             console.log(context);
 
       - name: Post a GitHub issue comment
+        if: env.PASS_VALIDATION == 'true'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
