@@ -38,7 +38,7 @@ data_capture_config = DataCaptureConfig(
 
 # Define the Model for Deployment
 model = Model(
-    model_data=model_s3_path,  # ✅ Load model from S3
+    model_data=model_s3_path,
     role=role,
     sagemaker_session=sagemaker_session
 )
@@ -46,7 +46,7 @@ model = Model(
 # Deploy the Model to an Endpoint
 model.deploy(
     initial_instance_count=1,
-    instance_type="ml.m4.xlarge",  # ✅ Match your previous working setup
+    instance_type="ml.m4.xlarge", 
     endpoint_name=endpoint_name,
     data_capture_config=data_capture_config
 )
