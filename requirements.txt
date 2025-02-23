@@ -9,4 +9,3 @@ scikit-learn
 pillow
 kagglehub
 seaborn
-json
