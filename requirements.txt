@@ -1,0 +1,11 @@
+jupyter
+nbconvert
+boto3
+tensorflow
+numpy
+pandas
+matplotlib
+scikit-learn
+pillow
+kagglehub
+seaborn
