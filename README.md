@@ -16,14 +16,14 @@ This project focuses on building a machine learning model to classify human emot
 - **Deployment:** **AWS SageMaker (Batch Inference via S3 & Lambda Triggers)**  
 
 ## Key Features  
-✅ **Preprocessing Pipeline:** Face detection, grayscale conversion, and image resizing (CascadeClassifier).  
-✅ **Data Augmentation:** Image flipping and minor transformations to reduce overfitting.  
-✅ **Automated CI/CD Workflow:** GitHub Actions for training validation and SageMaker CI/CD for deployment.  
-✅ **Model Tracking:** SageMaker Model Store for versioning and batch inference monitoring.  
+**Preprocessing Pipeline:** Face detection, grayscale conversion, and image resizing (CascadeClassifier).  
+**Data Augmentation:** Image flipping and minor transformations to reduce overfitting.  
+**Automated CI/CD Workflow:** GitHub Actions for training validation and SageMaker CI/CD for deployment.  
+**Model Tracking:** SageMaker Model Store for versioning and batch inference monitoring.  
 
 ## Repository Structure  
 - **`/`** – Jupyter notebooks for training and evaluation  
-- **`models/`** – Saved model artifacts (.h5 files)  
+- **`models/`** – Saved model artifacts
 - **`lambda/`** – Data preprocessing, lambda, and inference scripts  
 - **`README.md`** – This file  
 
@@ -36,18 +36,10 @@ This project focuses on building a machine learning model to classify human emot
    - Predictions are stored in S3 for evaluation.
 
 ## Future Enhancements  
-🔹 **Improve Model Performance:** Address dataset imbalance with techniques like **GANs or synthetic data augmentation**.  
-🔹 **Real-Time Inference:** Expand from batch to **real-time prediction API**.  
-🔹 **Better Monitoring:** Implement tools like **Grafana** for advanced logging and bias detection.  
+**Improve Model Performance:** Address dataset imbalance with techniques like **GANs or synthetic data augmentation**.  
 
 ## Authors  
 **Project Team Group 5** – *University of San Diego*  
 - **Dan Arday**  
 - **Gabriel Colon**  
 - **Kim Vierczhalek**  
-
-📌 **GitHub Repo:** [AAI_540-Group-Project](https://github.com/kviercz/AAI_540-Group-Project)  
-
----
-
-Let me know if you need any modifications! 🚀
