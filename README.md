@@ -32,8 +32,9 @@ This project focuses on building a machine learning model to classify human emot
 2. **Validation & CI/CD:** If validation accuracy is **above 50%**, GitHub Actions uploads the model as an artifact.  
 3. **AWS SageMaker Deployment:**  
    - Model stored in **S3** and registered in **SageMaker Model Store**.  
-   - **Batch Inference:** S3 triggers Lambda to preprocess images and send them for predictions.  
+   - **Inference:** S3 triggers Lambda to preprocess images and send them for predictions.  
    - Predictions are stored in S3 for evaluation.
+4. **Model Quality Monitoring:** Scheduled monitoring runs periodically, logging performance metrics (accuracy, precision, recall) into AWS CloudWatch for analysis and alerting.
 
 ## Future Enhancements  
 **Improve Model Performance:** Address dataset imbalance with techniques like **GANs or synthetic data augmentation**.  
