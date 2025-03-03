@@ -22,10 +22,8 @@ This project focuses on building a machine learning model to classify human emot
 **Model Tracking:** SageMaker Model Store for versioning and batch inference monitoring.  
 
 ## Repository Structure  
-- **`/`** – Jupyter notebooks for training and evaluation  
-- **`models/`** – Saved model artifacts
-- **`lambda/`** – Data preprocessing, lambda, and inference scripts  
-- **`README.md`** – This file  
+- **`/`** – Jupyter notebooks for training, evaluation, deployment, pipeline, and monitoring  
+- **`lambda_functions/`** – Data preprocessing, lambda, and inference scripts  
 
 ## Deployment Process  
 1. **Training:** The model is trained locally using **Google Colab (GPU)** due to AWS compute constraints.  
